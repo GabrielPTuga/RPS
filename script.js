@@ -1,5 +1,13 @@
 const pontuacao = JSON.parse(localStorage.getItem("pontuacao")); // Transformando-o em um objeto e armazenar os resultados
 
+if (pontuacao === null) {
+    const pontuacao = {
+        Ganhou: 0,
+        Empate: 0,
+        Perdeu: 0
+    }
+}
+
 function Hello () {
     console.log("Hello");
     console.log("World");
@@ -57,5 +65,6 @@ function resetarPontuacao() {
     pontuacao.Ganhou = 0;
     pontuacao.Empate = 0;
     pontuacao.Perdeu = 0;
+    localStorage.removeItem("pontuacao")
     alert("Pontuacao foi Resetada!")
 }
