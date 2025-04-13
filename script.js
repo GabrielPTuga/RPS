@@ -1,8 +1,4 @@
-let pontuacao = {
-    Ganhou: 0,
-    Empate: 0,
-    Perdeu: 0
-}
+const pontuacao = JSON.parse(localStorage.getItem("pontuacao")); // Transformando-o em um objeto e armazenar os resultados
 
 function Hello () {
     console.log("Hello");
@@ -53,6 +49,8 @@ function playGame2(escolha) {
         Computador Ganhou \n Ganhou: ${pontuacao.Ganhou}, Empate: ${pontuacao.Empate}, Perdeu: ${pontuacao.Perdeu}`);
         
     }
+
+    localStorage.setItem("pontuacao", JSON.stringify(pontuacao));
 }
 
 function resetarPontuacao() {
