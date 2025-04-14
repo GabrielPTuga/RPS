@@ -1,17 +1,14 @@
-const pontuacao = JSON.parse(localStorage.getItem("pontuacao")); // Transformando-o em um objeto e armazenar os resultados
+let pontuacao = JSON.parse(localStorage.getItem("pontuacao")); // Transformando-o em um objeto e armazenar os resultados
 
 if (pontuacao === null) {
-    const pontuacao = {
+    pontuacao = {
         Ganhou: 0,
         Empate: 0,
         Perdeu: 0
     }
 }
 
-function Hello () {
-    console.log("Hello");
-    console.log("World");
-}
+
 
 function pickComputerMove() {
     const randomNumber = Math.floor(Math.random()*10);
@@ -24,7 +21,7 @@ function pickComputerMove() {
         return "Tesoura";
     }
 }
-
+/*
 function playGame() {
     let computer = pickComputerMove();
     const player = prompt("Digite (Pedra, Papel ou Tesoura");
@@ -40,6 +37,7 @@ function playGame() {
         console.log("Conputer ganhou");
     }
 }
+*/
 
 function playGame2(escolha) {
     let computer = pickComputerMove();
@@ -49,7 +47,7 @@ function playGame2(escolha) {
         pontuacao.Empate += 1
         alert(`Player: ${player} vs Computer ${computer} \n Empate \n Ganhou: ${pontuacao.Ganhou}, Empate: ${pontuacao.Empate}, Perdeu: ${pontuacao.Perdeu}`);
     } else if ((player == "Pedra" && computer=="Tesoura") || (player == "Papel" && computer=="Pedra") || (player =="Tesoura" && computer=="Papel")) {
-        pontuacao.Ganhou += 1
+        pontuacao.Ganhou += 1;
         alert(`Player: ${player} vs Computer ${computer}\n Player Ganhou \n Ganhou: ${pontuacao.Ganhou}, Empate: ${pontuacao.Empate}, Perdeu: ${pontuacao.Perdeu}`);
     } else {
         pontuacao.Perdeu += 1
