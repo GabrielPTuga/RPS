@@ -8,7 +8,7 @@ if (pontuacao === null) {
     }
 }
 
-
+updateScoreElement();
 
 function pickComputerMove() {
     const randomNumber = Math.floor(Math.random()*10);
@@ -45,24 +45,39 @@ function playGame2(escolha) {
 
     if((player == "Pedra" && computer == "Pedra") || (player =="Papel" && computer == "Papel") || (player == "Tesoura" && computer == "Tesoura")) {
         pontuacao.Empate += 1
-        alert(`Player: ${player} vs Computer ${computer} \n Empate \n Ganhou: ${pontuacao.Ganhou}, Empate: ${pontuacao.Empate}, Perdeu: ${pontuacao.Perdeu}`);
+        document.querySelector(".js-result").innerHTML = "Empatou!"
+        playerComputer(player,computer);
     } else if ((player == "Pedra" && computer=="Tesoura") || (player == "Papel" && computer=="Pedra") || (player =="Tesoura" && computer=="Papel")) {
         pontuacao.Ganhou += 1;
-        alert(`Player: ${player} vs Computer ${computer}\n Player Ganhou \n Ganhou: ${pontuacao.Ganhou}, Empate: ${pontuacao.Empate}, Perdeu: ${pontuacao.Perdeu}`);
+        document.querySelector(".js-result").innerHTML = "Ganhou!"
+        playerComputer(player,computer);
+        
     } else {
         pontuacao.Perdeu += 1
-        alert(`Player: ${player} vs Computer ${computer}\n
-        Computador Ganhou \n Ganhou: ${pontuacao.Ganhou}, Empate: ${pontuacao.Empate}, Perdeu: ${pontuacao.Perdeu}`);
+        document.querySelector(".js-result").innerHTML = "Perdeu!"
+        playerComputer(player,computer);
         
     }
 
     localStorage.setItem("pontuacao", JSON.stringify(pontuacao));
+
+    updateScoreElement();
 }
 
 function resetarPontuacao() {
     pontuacao.Ganhou = 0;
     pontuacao.Empate = 0;
     pontuacao.Perdeu = 0;
-    localStorage.removeItem("pontuacao")
-    alert("Pontuacao foi Resetada!")
+    localStorage.removeItem("pontuacao");
+    updateScoreElement();
+    document.querySelector(".js-moves").innerHTML = ` `
+    document.querySelector(".js-result").innerHTML = "Pontuação Resetada!";
 }
+
+function updateScoreElement() {
+    document.querySelector(".js-score").innerHTML = `Ganhou: ${pontuacao.Ganhou}, Empate: ${pontuacao.Empate}, Perdeu: ${pontuacao.Perdeu}`
+};
+
+function playerComputer(player,computer) {
+    document.querySelector(".js-moves").innerHTML = `Player: ${player} vs Computer ${computer}`
+};
