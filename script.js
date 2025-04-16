@@ -82,5 +82,5 @@ function updateScoreElement() {
 
 // Função que vai Mostrar qual foi a opção que o jogador escolheu e qual que o computador escolheu
 function playerComputer(player,computer) {
-    document.querySelector(".js-moves").innerHTML = `Player: ${player} vs Computer ${computer}`
+    document.querySelector(".js-moves").innerHTML = `Player: <img src="images/${player}.png" alt="" class="move-icon">vs Computer <img src="images/${computer}.png" alt="" class="move-icon">`
 };
