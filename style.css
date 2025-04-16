@@ -1,0 +1,42 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: white;
+}
+
+.score-style {
+    margin-top: 60px;
+}
+
+.resetar-style {
+    padding: 10px 15px;
+    font-weight: bolder;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.js-ganhou {
+    color: lime;
+}
+
+.js-perdeu {
+    color: red;
+}
+
+.js-empate {
+    color: yellow;
+}
+
+.move-icon {
+    height: 50px;
+}
+
+.move-button {
+    background-color: transparent;
+    border: 3px solid white;
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    margin-right: 10px;
+    cursor: pointer;
+}

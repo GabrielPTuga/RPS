@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Function</title>
 </head>
 <body>
     <!--<button onclick="playGame()">Começar o jogo pelo prompt</button>
     <p></p>
 -->
-    <button onclick="playGame2('Pedra')">Pedra</button>
-    <button onclick="playGame2('Papel')">Papel</button>
-    <button onclick="playGame2('Tesoura')">Tesoura</button>
-    <button onclick="resetarPontuacao()">Reseter pontuação</button>
+    <button onclick="playGame2('Pedra')" class="move-button"><img src="images/pedra.png" alt="Pedra" class="move-icon"></button>
+    <button onclick="playGame2('Papel')" class="move-button"><img src="images/papel.png" alt="Papel" class="move-icon"></button>
+    <button onclick="playGame2('Tesoura')" class="move-button"><img src="images/tesoura.png" alt="Tesoura" class="move-icon"></button>
+    <button class="resetar-style" onclick="resetarPontuacao()">Reseter pontuação</button>
 
     <p class="js-result"></p>
-    <p class="js-moves"></p>
-    <p class="js-score">g</p>
+    <p class="js-moves moves-style"> Player: <img src="images/paper-emoji.png" alt="" class="move-icon">vs Computer <img src="images/rock-emoji.png" alt="" class="move-icon"></p>
+    <p class="js-score score-style"></p>
 
     <script src="script.js"></script>
 </body>
