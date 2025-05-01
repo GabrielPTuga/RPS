@@ -9,7 +9,7 @@ if (pontuacao === null) {
 }
 
 const ganperd = document.querySelector(".js-result");
-updateScoreElement();
+updateScoreElement();  // Exibir o resultado
 
 // Funcção para escolher a opção do jogador
 function pickComputerMove() {
@@ -60,6 +60,22 @@ function playGame2(escolha) {
 
     // Atualizar os resultados
     updateScoreElement();
+}
+
+let isAutoPlaying = false;
+let intervalID;
+
+function autoPlay() {
+    if (!isAutoPlaying) {
+        intervalID = setInterval(function() { // Pegando o numero do setInterval
+            const playerMove = pickComputerMove();
+            playGame2(playerMove);
+        }, 1000);
+        isAutoPlaying = true; 
+    } else {
+        clearInterval(intervalID); // Vai para o setInterval
+        isAutoPlaying = false;
+    }
 }
 
 // Função para resetar a pontuação
