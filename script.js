@@ -89,6 +89,7 @@ function resetarPontuacao() {
     document.querySelector(".js-result").innerHTML = "Pontuação Resetada!";
     ganperd.classList.add("js-perdeu");
     ganperd.classList.remove("js-empate");
+    autoPlay(); // Para parar o autoplay quando a pontuação é resetada
 }
 
 // Função que vai atualizar a pontuação do jogo
@@ -100,3 +101,19 @@ function updateScoreElement() {
 function playerComputer(player,computer) {
     document.querySelector(".js-moves").innerHTML = `Player: <img src="images/${player}.png" alt="" class="move-icon">vs Computer <img src="images/${computer}.png" alt="" class="move-icon">`
 };
+
+// Adicionndo EventListners
+const pedraButton = document.querySelector(".pedra-button");
+const papelButton = document.querySelector(".papel-button");
+const tesouraButton = document.querySelector(".tesoura-button");
+
+
+pedraButton.addEventListener("click",() => {
+    playGame2("Pedra");
+});
+papelButton.addEventListener("click",() => {
+    playGame2("Papel");
+});
+tesouraButton.addEventListener("click",() => {
+    playGame2("Tesoura");
+});
