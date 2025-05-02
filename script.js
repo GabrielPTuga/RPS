@@ -89,7 +89,6 @@ function resetarPontuacao() {
     document.querySelector(".js-result").innerHTML = "Pontuação Resetada!";
     ganperd.classList.add("js-perdeu");
     ganperd.classList.remove("js-empate");
-    autoPlay(); // Para parar o autoplay quando a pontuação é resetada
 }
 
 // Função que vai atualizar a pontuação do jogo
@@ -116,4 +115,25 @@ papelButton.addEventListener("click",() => {
 });
 tesouraButton.addEventListener("click",() => {
     playGame2("Tesoura");
+});
+
+// On keyDown
+
+document.addEventListener("keydown",(event) => {
+    switch (event.key) {
+        case "a":
+            playGame2("Pedra");
+            break
+        case "s":
+            playGame2("Papel");
+            break
+        case "d":
+            playGame2("Tesoura");
+            break
+        case "r":
+            resetarPontuacao();
+            break
+        case "x":
+            autoPlay();
+    }
 });
