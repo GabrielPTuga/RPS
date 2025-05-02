@@ -105,6 +105,8 @@ function playerComputer(player,computer) {
 const pedraButton = document.querySelector(".pedra-button");
 const papelButton = document.querySelector(".papel-button");
 const tesouraButton = document.querySelector(".tesoura-button");
+const resetarButton = document.querySelector(".js-reset");
+const autoButton = document.querySelector(".js-auto")
 
 
 pedraButton.addEventListener("click",() => {
@@ -116,6 +118,12 @@ papelButton.addEventListener("click",() => {
 tesouraButton.addEventListener("click",() => {
     playGame2("Tesoura");
 });
+resetarButton.addEventListener("click",() => {
+    resetarPontuacao();
+})
+autoButton.addEventListener("click",() => {
+    autoPlay();
+})
 
 // On keyDown
 
