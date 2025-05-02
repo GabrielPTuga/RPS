@@ -67,7 +67,7 @@ let intervalID;
 
 function autoPlay() {
     if (!isAutoPlaying) {
-        intervalID = setInterval(function() { // Pegando o numero do setInterval
+        intervalID = setInterval(() => { // Pegando o numero do setInterval
             const playerMove = pickComputerMove();
             playGame2(playerMove);
         }, 1000);
