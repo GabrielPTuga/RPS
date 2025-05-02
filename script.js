@@ -72,9 +72,11 @@ function autoPlay() {
             playGame2(playerMove);
         }, 1000);
         isAutoPlaying = true; 
+        return true; // Para fazer o controle da função
     } else {
         clearInterval(intervalID); // Vai para o setInterval
         isAutoPlaying = false;
+        return false;
     }
 }
 
@@ -89,6 +91,10 @@ function resetarPontuacao() {
     document.querySelector(".js-result").innerHTML = "Pontuação Resetada!";
     ganperd.classList.add("js-perdeu");
     ganperd.classList.remove("js-empate");
+
+    if (autoPlay() === true) {
+        autoPlay();
+    }
 }
 
 // Função que vai atualizar a pontuação do jogo
