@@ -82,6 +82,37 @@ function autoPlay() {
 
 // Função para resetar a pontuação
 function resetarPontuacao() {
+    const confirmation = document.querySelector(".js-confirmation");
+    confirmation.innerHTML = "Certeza queres resetar a pontuação? <button class='js-sim sim-button'>Sim</button><button class='js-nao nao-button'>Não</button>";
+
+    const simButton = document.querySelector(".js-sim");
+    const naoButton = document.querySelector(".js-nao");
+
+    simButton.addEventListener("click",()=>{
+        pontuacao.Ganhou = 0;
+        pontuacao.Empate = 0;
+        pontuacao.Perdeu = 0;
+        localStorage.removeItem("pontuacao");
+        updateScoreElement();
+        document.querySelector(".js-moves").innerHTML = ` `
+        document.querySelector(".js-result").innerHTML = "Pontuação Resetada!";
+        ganperd.classList.add("js-perdeu");
+        ganperd.classList.remove("js-empate");
+
+        confirmation.innerHTML = "<button class='resetar-style js-reset' >Resetar pontuação</button>"
+
+        const resetButton = document.querySelector(".js-reset");
+        resetButton.addEventListener("click", resetarPontuacao);
+    })
+
+    naoButton.addEventListener("click",()=>{
+        confirmation.innerHTML = "<button class='resetar-style js-reset' >Resetar pontuação</button>"
+
+        const resetButton = document.querySelector(".js-reset");
+        resetButton.addEventListener("click", resetarPontuacao);
+    })
+
+    /*
     pontuacao.Ganhou = 0;
     pontuacao.Empate = 0;
     pontuacao.Perdeu = 0;
@@ -133,10 +164,10 @@ autoButton.addEventListener("click",() => {
     const isPlaying = autoPlay();
 
     if(isPlaying) {
-        autoButton.classList.add("auto-stop");
+        //autoButton.classList.add("auto-stop");
         autoButton.innerHTML = "StopPlay";
     } else {
-        autoButton.classList.remove("auto-stop");
+        //autoButton.classList.remove("auto-stop");
         autoButton.innerHTML = "AutoPlay";
     }
     
@@ -145,6 +176,7 @@ autoButton.addEventListener("click",() => {
 // On keyDown
 
 document.addEventListener("keydown",(event) => {
+    console.log(event.key);
     switch (event.key) {
         case "a":
             playGame2("Pedra");
@@ -155,7 +187,7 @@ document.addEventListener("keydown",(event) => {
         case "d":
             playGame2("Tesoura");
             break
-        case "r":
+        case " ":
             resetarPontuacao();
             break
         case "x":

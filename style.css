@@ -40,3 +40,10 @@ body {
     margin-right: 10px;
     cursor: pointer;
 }
+
+.sim-button,.nao-button {
+    padding: 10px 15px;
+    font-weight: bolder;
+    border-radius: 15px;
+    cursor: pointer;
+}
