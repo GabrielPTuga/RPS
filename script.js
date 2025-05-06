@@ -92,9 +92,11 @@ function resetarPontuacao() {
     ganperd.classList.add("js-perdeu");
     ganperd.classList.remove("js-empate");
 
+    /*
     if (autoPlay() === true) {
         autoPlay();
     }
+    */
 }
 
 // Função que vai atualizar a pontuação do jogo
@@ -128,7 +130,16 @@ resetarButton.addEventListener("click",() => {
     resetarPontuacao();
 })
 autoButton.addEventListener("click",() => {
-    autoPlay();
+    const isPlaying = autoPlay();
+
+    if(isPlaying) {
+        autoButton.classList.add("auto-stop");
+        autoButton.innerHTML = "StopPlay";
+    } else {
+        autoButton.classList.remove("auto-stop");
+        autoButton.innerHTML = "AutoPlay";
+    }
+    
 })
 
 // On keyDown
